@@ -67,7 +67,7 @@
             if ($stmt->rowCount() > 0) {
               $_SESSION['email'] = $email;
               $_SESSION['password'] = $password;
-              header('Location: http://localhost/KD Printing Services/homepage.php');
+              header('Location: http://localhost/KD Printing Services/index.php');
               exit();
             } else {
               header('Location: http://localhost/KD Printing Services/ProductPage.html');
@@ -78,7 +78,7 @@
           }
         } else if (isset($_POST['logout'])) {
           session_destroy();
-          header('Location: http://localhost/KD Printing Services/homepage.php');
+          header('Location: http://localhost/KD Printing Services/index.php');
           exit();
         }
       }
@@ -93,7 +93,7 @@
             <h1>Printing Services</h1>
           </div>
           <div class="col-md-5 navbar-links text-right navbar-right" style="margin-top: 75px;;">
-            <a class="active" href="Homepage.html" style="color: red;">
+            <a class="active" href="index.php" target="_self" style="color: red;">
               <i class="fa fa-fw fa-home"></i> Home </a>
             <a href="ProductPage.html" style="color: orange;">
               <i class="fa fa-fw fa-file"></i> Products </a>
