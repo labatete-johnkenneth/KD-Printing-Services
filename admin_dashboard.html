@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="admin.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="Public\bootstrap-3.4.1-dist\bootstrap-3.4.1-dist\css\bootstrap.min.css">
+    <link rel="stylesheet" href="Public/fontawesome-free-6.6.0-web\fontawesome-free-6.6.0-web\css\all.min.css">
+
+    <script src="Public\plugins\jquery-3.7.1.min.js"></script>
+    <script src="Public\bootstrap-3.4.1-dist\bootstrap-3.4.1-dist\js\bootstrap.min.js"></script>
+    <style>       
+        /* Profile Container Styling */
+        .profile-container {
+            margin-left: 30px;
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin-top: 13px;
+        }
+        
+        #profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        /* On hover, change the opacity and show the Edit button */
+        .profile-container:hover #profile-photo {
+            opacity: 0.7;  /* Slight transparency when hovered */
+        }
+        
+        .profile-container:hover .profile-btn {
+            display: block;  /* Show the edit button on hover */
+        }
+        
+        .profile-btn {
+            display: none; 
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: rgba(145, 25, 224, 0.5); /* Semi-transparent background */
+            color: rgb(225, 215, 230);
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Space between logo and text */
+        }
+        .logo-container img {
+            height: 200px; /* Adjust size as needed */
+            width: auto;
+            border-radius: 50%;
+        }
+        .logo-container h1 {
+            margin: 0;
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .logout-container {
+        position: absolute;
+        bottom: 20px; /* Adjust the distance from the bottom */
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: 100%;
+        }
+
+        .logout-btn {
+            padding: 10px 20px;
+            background-color: #3b2c2b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 80%; /* Adjust width as needed */
+        }
+
+        .logout-btn:hover {
+            background-color: #928585;
+        }
+
+        body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffa7b4, #a7e5fa, #fab8fa, #f7f7a2, #8eff8e);
+    background-size: cover;
+}
+
+.col-md-2.sidenav {
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#content-area {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+    </style>
+    
+</head>
+<body>
+    <nav class="navbar navbar-inverse" style="background-color: rgb(193, 153, 197);">
+        <div class="container-fluid">
+            <div class="time-container" id="date"></div>
+
+            <form class="navbar-form navbar-right" role="search" method="GET" id="search-form">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search-term" id="search-term" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row content">
+          <div class="col-md-2 sidenav" style="height:550px;">
+            <!-- Profile Image and Edit Feature -->
+    <div class="profile-container" style="text-align: center; position: relative;">
+        <!-- Profile photo -->
+        <img id="profile-photo" src="Images/user-image.png" class="img-circle img-responsive" 
+             style="width:130px; height:130px; object-fit: cover; margin-top: 13px;">
+        
+        <!-- Edit Photo Button (shown on hover) -->
+        <button class="btn btn-info profile-btn" onclick="document.getElementById('fileInput').click();" 
+                style="position: absolute; bottom: 10px; right: 20px; ">Edit Photo</button>
+        
+        <!-- File Input for Upload (hidden initially) -->
+        <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="previewImage(event)">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+    </div>
+    
+    
+            
+    <p><strong>Role:</strong> <span id="userName"></span></p>
+    
+            
+            <!-- Navigation Links -->
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="notification.html" id="notification" style="color: rgb(0, 3, 0);"> Notifications</a></li>
+              <li><a href="orderStatus.html" id="orderstatus" style="color: rgb(0, 3, 0);"> Orders</a></li>
+              <li><a href="#settings" id="settings"style="color: rgb(0, 3, 0);"><i class="fa-solid fa-gear"></i> Settings</a></li>
+            </ul><br>
+
+            <div class="logout-container">
+                <button class="logout-btn">Log out</button>
+            </div>
+            
+          </div>
+    
+          <!-- Content area for sales -->
+          <div id="content-area">
+            <div class="logo-container" style="margin-top: 1px; flex-direction: row;;">
+                <img src="Images\logokd.png" alt="Logo" style="margin-left: 20px">
+                <h1>Printing Services</h1>  
+            </div>
+                <div style="text-align: center; flex-direction: row;">
+                    <h2 style="margin-top: 50px; font-size: 36px; font-weight: bold;">Sales</h2>
+                    <div class="salesrow1">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="well" style="height: 200px; background-color: rgba(240, 248, 255, 0.363);">
+                              <h4 style="text-align: center;">RAFFLE TICKET</h4>
+                              <p class="col-sm-7" style="text-align: right;">
+                                <a href="#"><i class="fa-solid fa-ticket" style="margin-top: 10px; font-size: 50px;"></i></a>
+                              </p>
+                              <p style="margin-top: 100px;text-align: right;"><a href="#books" id="books">View More <i class="fa-solid fa-circle-arrow-right"></i></a></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="well" style="height: 200px; background-color: rgba(240, 248, 255, 0.363);">
+                                  <h4 style="text-align: center;">WRISTBAND</h4>
+                                  <p class="col-sm-7" style="text-align: right;">
+                                    <a href="#"><i class="fa-solid fa-ticket" style="margin-top: 10px; font-size: 50px;"></i></a>
+                                  </p>
+                                  <p style="margin-top: 100px;text-align: right;"><a href="#books" id="books">View More <i class="fa-solid fa-circle-arrow-right"></i></a></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <div class="well" style="height: 200px; background-color: rgba(240, 248, 255, 0.363);">
+                                      <h4 style="text-align: center;">VOUCHER </h4>
+                                      <p class="col-sm-7" style="text-align: right;">
+                                        <a href="#"><i class="fa-solid fa-ticket" style="margin-top: 10px; font-size: 50px;"></i></a>
+                                      </p>
+                                      <p style="margin-top: 100px;text-align: right;"><a href="#books" id="books">View More <i class="fa-solid fa-circle-arrow-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="well" style="height: 200px; background-color: rgba(240, 248, 255, 0.363);">
+                                          <h4 style="text-align: center;">COUPON STUB</h4>
+                                          <p class="col-sm-7" style="text-align: right;">
+                                            <a href="#"><i class="fa-solid fa-ticket" style="margin-top: 10px; font-size: 50px;"></i></a>
+                                          </p>
+                                          <p style="margin-top: 100px;text-align: right;"><a href="#books" id="books">View More <i class="fa-solid fa-circle-arrow-right"></i></a></p>
+                                        </div>
+                                    </div>
+                                </div> 
+                                
+                                <div class="salesrow2" >
+                                    <div class="row" >
+                                        <div class="col-sm-2" style="margin-left: 285px;">
+                                            <div class="well" style="height: 200px; background-color: rgba(240, 248, 255, 0.363);">
+                                              <h4 style="text-align: center;">FLYERS</h4>
+                                              <p class="col-sm-7" style="text-align: right;">
+                                                <a href="#"><i class="fa-solid fa-ticket" style="margin-top: 10px; font-size: 50px;"></i></a>
+                                              </p>
+                                              <p style="margin-top: 100px;text-align: right;"><a href="#books" id="books">View More <i class="fa-solid fa-circle-arrow-right"></i></a></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <div class="well" style="height: 200px; background-color: rgba(240, 248, 255, 0.363);">
+                                                  <h4 style="text-align: center;">CALLING CARD</h4>
+                                                  <p class="col-sm-7" style="text-align: right;">
+                                                    <a href="#"><i class="fa-solid fa-ticket" style="margin-top: 10px; font-size: 50px;"></i></a>
+                                                  </p>
+                                                  <p style="margin-top: 100px;text-align: right;"><a href="#books" id="books">View More <i class="fa-solid fa-circle-arrow-right"></i></a></p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-2">
+                                                    <div class="well" style="height: 200px; background-color: rgba(240, 248, 255, 0.363);">
+                                                      <h4 style="text-align: center;">LABEL DISCOUNTS </h4>
+                                                      <p class="col-sm-7" style="text-align: right;">
+                                                        <a href="#"><i class="fa-solid fa-ticket" style="margin-top: 10px; font-size: 50px;"></i></a>
+                                                      </p>
+                                                      <p style="margin-top: 100px;text-align: right;"><a href="#books" id="books">View More <i class="fa-solid fa-circle-arrow-right"></i></a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-2">
+                                                        <div class="well" style="height: 200px; background-color: rgba(240, 248, 255, 0.363);">
+                                                          <h4 style="text-align: center;">PERSONALIZED 
+                                                            BALLPEN </h4>
+                                                          <p class="col-sm-7" style="text-align: right;">
+                                                            <a href="#"><i class="fa-solid fa-ticket" style="margin-top: 10px; font-size: 50px;"></i></a>
+                                                          </p>
+                                                          <p style="margin-top: 100px;text-align: right;"><a href="#books" id="books">View More <i class="fa-solid fa-circle-arrow-right"></i></a></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                </div>                  
+              
+        </div>
+          
+          <div id="search-results">
+            <!-- Search results will be displayed here -->
+          </div>
+        </div>
+      </div>
+
+
+
+    <!-- Modal for User Settings -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModalBtn">&times;</span>
+            <h1>Update Your Settings</h1>
+
+            <!-- Form to change username and password -->
+            <form id="updateSettings">
+
+                <div class="form-group">
+                    <label for="new-username">New Username:</label>
+                    <input type="text" id="new-username" name="new-username" required placeholder="Enter new username">
+                </div>
+
+                <div class="form-group">
+                    <label for="current-password">Current Password:</label>
+                    <input type="password" id="current-password" name="current-password" required placeholder="Enter current password">
+                </div>
+
+                <div class="form-group">
+                    <label for="new-password">New Password:</label>
+                    <input type="password" id="new-password" name="new-password" required placeholder="Enter new password">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirm New Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm new password">
+                </div>
+
+                <div class="button-container">
+                    <button type="submit" style="background-color: violet;">Update Settings</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+      
+<script>
+       $(document).ready(function() {
+    // AJAX request to get the user info (username and email)
+    $.ajax({
+        url: 'userName.php',  // PHP script to fetch user info
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            if (response.status === 'success') {
+                // Use .text() to update text content of elements
+                $('#userName').text(response.user.username);
+                $('#userEmail').text(response.user.email);
+            } else {
+                console.log("Error: " + response.message);
+            }
+        },
+        error: function() {
+            console.log("Error fetching user info.");
+        }
+    });
+});
+
+
+</script>
+
+
+
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = document.getElementById('profile-photo');
+            output.src = reader.result;  // Show the selected image as a preview
+        };
+        reader.readAsDataURL(event.target.files[0]);  // Read the selected file for preview
+    }
+    
+    function uploadPhoto() {
+        var formData = new FormData();
+        var fileInput = document.getElementById('fileInput');
+        formData.append('photo', fileInput.files[0]);
+    
+        $.ajax({
+            url: 'upload.php',  // PHP script to handle the upload
+            type: 'POST',
+            data: formData,
+            contentType: false,  // Don't set content type
+            processData: false,  // Prevent jQuery from processing the data
+            success: function(response) {
+                var data = JSON.parse(response);
+    
+                if (data.success) {
+                    // Update the profile photo src attribute
+                    $('#profile-photo').attr('src', data.photo);
+                    alert('Photo uploaded successfully!');
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            },
+            error: function() {
+                alert('An error occurred while uploading the photo.');
+            }
+        });
+    }
+
+        // Attach upload function to file input change event
+    document.getElementById('fileInput').addEventListener('change', uploadPhoto);
+
+    $(document).ready(function() {
+    // AJAX request to get the profile photo from the database
+    $.ajax({
+        url: 'get_userpic.php',  // PHP script to fetch profile photo
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            if (response.photo) {
+                $('#profile-photo').attr('src', response.photo);  // Update the profile photo
+            }
+        },
+        error: function() {
+            console.log("Error fetching profile photo.");
+        }
+    });
+})
+    
+//     // Function to fetch and set the profile photo
+// function loadProfilePhoto() {
+//             fetch('get_userpic.php')
+//                 .then(response => response.json())
+//                 .then(data => {
+//                     // Update the image source
+//                     document.getElementById('profile-photo').src = data.photo;
+//                 })
+//                 .catch(error => console.error('Error fetching profile photo:', error));
+//         }
+
+//         // Load the profile photo when the page loads
+//         window.onload = loadProfilePhoto;
+
+</script>
+
+
+
+
+    <script>
+        // Modal handling
+        var modal = document.getElementById("settingsModal");
+        var openModalBtn = document.getElementById("settings");  // Settings link
+        var closeModalBtn = document.getElementById("closeModalBtn");
+
+        // Open the modal
+        openModalBtn.onclick = function (e) {
+            e.preventDefault();  // Prevent default link action
+            modal.style.display = "block";
+        }
+
+        // Close the modal
+        closeModalBtn.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // Close the modal if clicked outside of it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Form submission logic for updating settings
+        document.getElementById('updateSettings').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            // Check if the new password and confirm password match
+            if (newPassword !== confirmPassword) {
+                alert("New password and confirmation do not match.");
+                return;
+            }
+
+            const formData = new FormData(this);  // FormData handles form data including password
+
+            fetch('update_setting.php', {
+                method: 'POST',
+                body: formData,  // Sending form data to the server
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.msg);  // Display message
+                if (data.isSuccess) {
+                    window.location.href = "user.html";  // Redirect to profile page after successful update
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+
+            $('#users').click(function(e) {
+                e.preventDefault();  // Prevent default link action
+
+                $.ajax({
+                    url: 'userpage.html',  // PHP file to fetch books
+                    type: 'GET',
+                    success: function(response) {
+                        $('#content-area').html(response);  // Insert the response into a div with id "content-area"
+                    },
+                    error: function() {
+                        alert('Error loading users.');
+                    }
+                });
+            });
+
+            $('#settings').click(function(e) {
+                e.preventDefault();  // Prevent default link action
+
+                // Instead of loading a new page, open the modal directly
+                modal.style.display = "block";
+            });
+        });
+        $(document).ready(function() {
+            $(document).ready(function() {
+    // When the user types in the search box
+    $('#search-term').on('keyup', function() {
+        var searchTerm = $(this).val().trim(); // Get the search term
+
+        // Only perform search if the input is not empty
+        if (searchTerm.length > 0) {
+            // Show loader while fetching results
+            
+            $.ajax({
+                url: 'search_books.php', // PHP script to handle search
+                type: 'GET',
+                data: {
+                    'search-term': searchTerm
+                },
+                success: function(response) {
+                    // Only update the content inside the #content-area and not affect sidebar/navbar
+                    $('#content-area').html(response);
+
+                    // If no results are found
+                    if (response.indexOf('No results found') !== -1) {
+                        $('#content-area').html('<p>No results found for "' + searchTerm + '".</p>');
+                    }
+                },
+                error: function() {
+                    $('#content-area').html('<p>An error occurred while fetching the results.</p>');
+                }
+            });
+        } else {
+            // Clear the results if the input is empty
+            $('#content-area').html('');
+        }
+    });
+
+    // Handle the search button click (to trigger search manually if required)
+    $('#search-form').submit(function(e) {
+        e.preventDefault(); // Prevent form submission
+
+        var searchTerm = $('#search-term').val().trim();
+        if (searchTerm.length > 0) {
+            $('#search-results').html('<div class="loader"><img src="" alt="Loading..."></div>');
+
+            $.ajax({
+                url: 'search_books.php', // PHP script to handle search
+                type: 'GET',
+                data: {
+                    'search-term': searchTerm
+                },
+                success: function(response) {
+                    // Only update the content inside the #content-area
+                    $('#content-area').html(response);
+
+                    // If no results are found
+                    if (response.indexOf('No results found') !== -1) {
+                        $('#content-area').html('<p>No results found for "' + searchTerm + '".</p>');
+                    }
+                },
+                error: function() {
+                    $('#content-area').html('<p>An error occurred while fetching the results.</p>');
+                }
+            });
+        }
+    });
+
+    // Handle the back functionality
+    $('#back-to-search').click(function(e) {
+        e.preventDefault();
+        $('#search-results').html(''); // Clear the results container
+        $('#search-term').val(''); // Optionally, clear the search input field
+    });
+});
+
+});
+
+
+
+</script>
+
+</body>
+</html>

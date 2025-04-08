@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Status</title>
+
+    <link rel="stylesheet" type="text/css" href="Public/bootstrap-3.4.1-dist/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Public/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
+    <script src="Public/plugins/jquery-3.7.1.min.js"></script>
+    <script src="Public/bootstrap-3.4.1-dist/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffa7b4, #a7e5fa, #fab8fa, #f7f7a2, #8eff8e);
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        th {
+            background: #007bff;
+            color: white;
+        }
+
+        .status {
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .pending { background: #f0ad4e; color: white; }
+        .shipped { background: #5bc0de; color: white; }
+        .delivered { background: #5cb85c; color: white; }
+        .canceled { background: #d9534f; color: white; }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .footer a {
+            margin: 0 15px;
+            font-size: 24px;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        .footer a:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse" style="background-color: rgb(193, 153, 197);">
+        <div class="container-fluid">
+            <div class="account">
+                <img src="Images\person.jpg" style="height:70px; width:auto; border-radius:50%;">
+                <h5 style="display:inline-block; vertical-align: middle;">Name</h5>
+            </div>
+
+            <div class="col-md-6 navbar-links text-right navbar-right"  >
+                <a class="active" href="orderStatus.html"><i class="fa fa-fw fa-ticket"></i> Order Status</a>
+                <a href="notification.html"><i class="fa fa-fw fa-bell"></i> Notifications</a>
+                <a href="account.html"><i class="fa fa-fw fa-person"></i> Account</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>📦 Order Status</h1>
+        <table>
+            <tr>
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>#12345</td>
+                <td>March 25, 2025</td>
+                <td><span class="status pending">Pending</span></td>
+            </tr>
+            <tr>
+                <td>#12346</td>
+                <td>March 24, 2025</td>
+                <td><span class="status shipped">Shipped</span></td>
+            </tr>
+            <tr>
+                <td>#12347</td>
+                <td>March 20, 2025</td>
+                <td><span class="status delivered">Delivered</span></td>
+            </tr>
+            <tr>
+                <td>#12348</td>
+                <td>March 18, 2025</td>
+                <td><span class="status canceled">Canceled</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Footer with Icons -->
+    <div class="footer">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="mailto:example@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+123456789"><i class="fas fa-phone"></i></a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings</title>
+
+    <link rel="stylesheet" type="text/css" href="Public/bootstrap-3.4.1-dist/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Public/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
+    <script src="Public/plugins/jquery-3.7.1.min.js"></script>
+    <script src="Public/bootstrap-3.4.1-dist/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffa7b4, #a7e5fa, #fab8fa, #f7f7a2, #8eff8e);
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-picture {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #007bff;
+        }
+
+        .upload-btn {
+            margin-top: 10px;
+            display: block;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .update-btn, .logout-btn {
+            width: 48%;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .update-btn {
+            background-color: #5cb85c;
+            color: white;
+        }
+
+        .update-btn:hover {
+            background-color: #4cae4c;
+        }
+
+        .logout-btn {
+            background-color: #d9534f;
+            color: white;
+        }
+
+        .logout-btn:hover {
+            background-color: #c9302c;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .footer a {
+            margin: 0 15px;
+            font-size: 24px;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        .footer a:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+     <nav class="navbar navbar-inverse" style="background-color: rgb(193, 153, 197);">
+        <div class="container-fluid">
+            <div class="account">
+                <img src="Images\person.jpg" style="height:70px; width:auto; border-radius:50%;">
+                <h5 style="display:inline-block; vertical-align: middle;">Name</h5>
+            </div>
+
+            <div class="col-md-6 navbar-links text-right navbar-right"  >
+                <a class="active" href="orderStatus.html"><i class="fa fa-fw fa-ticket"></i> Order Status</a>
+                <a href="notification.html"><i class="fa fa-fw fa-bell"></i> Notifications</a>
+                <a href="account.html"><i class="fa fa-fw fa-person"></i> Account</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>🔧 Account Settings</h1>
+        
+        <!-- Profile Image and Edit Feature -->
+    <div class="profile-container" style="text-align: center; position: relative;">
+        <!-- Profile photo -->
+        <img id="profile-photo" src="Images/user-image.png" class="img-circle img-responsive" 
+             style="width:130px; height:130px; object-fit: cover; margin-top: 13px;">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+    </div>
+        
+        <!-- User Info -->
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <!--name-->
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <!--email-->
+        </div>
+
+        <div class="form-group">
+            <a href="#settings" id="settings"style="color: rgb(0, 3, 0);"><i class="fa-solid fa-gear"></i> Settings</a>
+        </div>
+
+        <!-- Buttons -->
+        <div class="btn-container">
+            <button class="logout-btn" onclick="logout()">Log Out</button>
+        </div>
+    </div>
+
+
+    <script>
+        // Function to update profile picture preview
+        document.getElementById('uploadPhoto').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profilePic').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Function to handle logout
+        function logout() {
+            alert("You have been logged out.");
+            window.location.href = "login.html"; // Redirect to login page
+        }
+    </script>
+
+</body>
+</html>

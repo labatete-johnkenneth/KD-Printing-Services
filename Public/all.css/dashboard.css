@@ -1,0 +1,253 @@
+/* Custom styles for responsiveness */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+/* Ensuring the body takes full height */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-size: cover;
+}
+
+/* Custom styles for the avatar */
+#loginavatar {
+  width: 130px;
+  height: 130px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 100%;
+  object-fit: cover;
+  margin-top: 15px;
+}
+
+/* Optional: custom styles for the search input and button */
+.navbar-form .form-control {
+  width: 200px; /* Set a specific width for the search input */
+}
+
+.navbar-form .btn {
+  margin-left: 5px; /* Add some space between the input and the button */
+}
+
+/* Style for the time container */
+.time-container {
+  display: inline-block; /* Keep it in line with other navbar elements */
+  padding: 8px 12px; /* Add padding for spacing */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 4px; /* Round the corners for a rectangle shape */
+  background-color: #9915f121; /* Light background color */
+  font-weight: bold; /* Make the time bold */
+  color: #fff;
+  margin-top: 5px;
+}
+
+/* Search Results Container */
+.results-container {
+  margin: 20px;
+}
+
+/* Search Results */
+.result-item {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-item h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #6200ea;
+}
+
+.result-item p {
+  margin: 5px 0;
+  color: #444;
+}
+
+.result-item strong {
+  color: #6200ea;
+}
+
+/* Loader Styles */
+.loader {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.loader img {
+  width: 50px;
+}
+
+
+/* Responsive adjustments for the sidebar */
+.sidenav {
+  width: 25%; /* Increased width of the sidebar */
+  /* padding: 20px; */
+  background-color: #fbf9ff4d;
+  border-radius: 5px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  
+}
+
+.sidenav h2, .sidenav p {
+  text-align: center;  /* Center-align text in the sidebar */
+  color: #333;
+}
+
+.sidenav h2 {
+  font-size: 20px;  /* Increased font size for better visibility */
+  margin-top: 10px;
+}
+
+.sidenav p {
+  font-size: 16px;  /* Increased font size for email */
+}
+
+
+
+
+.nav-pills .active > a {
+  background-color: #59048a;
+}
+
+.nav-pills li a {
+  color: #800080 !important;  /* Link color */
+  font-weight: bold;
+  font-size: 25px; /* Increased font size for navigation links */
+  padding: 12px 20px; /* Increased padding for better clickability */
+  border-radius: 5px;
+}
+
+.nav-pills li a:hover {
+  background-color: #ad62cfbb !important;
+}
+
+/* The main content area styles */
+.well {
+  background-color: #bf46f0;
+  border-radius: 5px;
+  padding: 15px;
+  
+}
+
+.well h1 {
+  text-align: center;
+}
+
+.well p {
+  /* text-align: right; */
+  padding: 10px;
+  
+}
+
+.overflow-image {
+  position: absolute;
+  top: -40px;
+  left: 20%;
+  transform: translateX(-50%);
+  width: 400px;
+}
+
+/* Responsive grid for smaller screens */
+@media (max-width: 768px) {
+  /* Adjust navbar for smaller screens */
+  .navbar-inverse .navbar-toggle {
+    border-color: transparent;
+  }
+
+  .navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #fff;
+  }
+
+  .navbar-inverse .navbar-collapse {
+    background-color: #333;
+  }
+
+  .navbar-inverse .navbar-nav > li > a {
+    color: white;
+    padding: 10px 15px;
+  }
+
+  .navbar-inverse .navbar-nav > li > a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  /* Sidebar collapses into a simple list on mobile */
+  .sidenav {
+    width: 100%; /* Make sidebar full width on small screens */
+    padding-top: 20px;
+    height: 100%;
+  }
+
+  .nav-pills {
+    text-align: center;
+  }
+
+  .nav-pills li {
+    display: inline-block;
+    margin: 5px;
+    color: #59048a;
+  }
+
+  /* Adjust content area */
+  .col-sm-9 {
+    padding-left: 0;
+  }
+
+  /* Make the avatar responsive */
+  #loginavatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Make columns stack on small screens */
+  .row > .col-sm-3 {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  /* Adjust image sizes for small screens */
+  .well img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Adjust the text sizes */
+  h1, h4 {
+    font-size: 1.5em;
+  }
+}
+
+/* Extra small screens (portrait phones, less than 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2em;
+  }
+
+  .well {
+    padding: 10px;
+  }
+
+  .navbar-inverse .navbar-nav > li > a {
+    padding: 10px;
+  }
+
+  .nav-pills li {
+    width: 100%;
+    text-align: left;
+  }
+
+  /* Adjust avatar size for extra small screens */
+  #loginavatar {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+

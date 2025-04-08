@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+
+    <link rel="stylesheet" type="text/css" href="Public/bootstrap-3.4.1-dist/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Public/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
+    <script src="Public/plugins/jquery-3.7.1.min.js"></script>
+    <script src="Public/bootstrap-3.4.1-dist/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+
+    <style>
+      body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Covers the entire viewport */
+    background: linear-gradient(135deg, 
+        #ffa7b4, /* Pastel Red (Light Pink) */
+        #a7e5fa, /* Pastel Blue */
+        #fab8fa, /* Pastel Violet */
+        #f7f7a2, /* Pastel Yellow */
+        #8eff8e  /* Pastel Green */
+    );
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Space between logo and text */
+        }
+        .logo-container img {
+            height: 200px; /* Adjust size as needed */
+            width: auto;
+            border-radius: 50%;
+        }
+        .logo-container h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: bold;
+    background: linear-gradient(45deg, 
+        red, orange, yellow, green, blue, indigo, violet);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 30px;
+        }
+        button {
+            height: 70px;
+            width:auto;
+        }
+
+       
+
+        /* Navbar */
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 20px;
+        }
+
+        .content h2 {
+            background: linear-gradient(45deg, 
+        red, orange, yellow, blue, indigo, violet);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        }
+
+        .row p{
+            background: linear-gradient(45deg, 
+        red, orange, yellow, blue, indigo, violet);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        }
+        .row h4{
+            background: linear-gradient(45deg, 
+        red, orange, green, blue, indigo, violet);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        }
+
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="homepage">
+       <!-- Navbar -->
+       <nav class="navbar">
+        <div class="container-fluid">
+            <div class="col-md-6 logo-container" style="margin-top: 20px;">
+                <img src="Images\logokd.png" alt="Logo">
+                <h1>Printing Services</h1>
+            </div>
+            <div class="col-md-5 navbar-links text-right navbar-right" style="margin-top: 75px;;" >
+                <a class="active" href="Homepage.html" style="color: red;"><i class="fa fa-fw fa-home"></i> Home</a>
+                <a href="ProductPage.html" style="color: orange;"><i class="fa fa-fw fa-file"></i> Products</a>
+                <a href="ContactsPage.html" style="color: green;"><i class="fa fa-fw fa-envelope"></i> Contacts</a>
+                <button type="button" class="btn btn-primary" style="color: rgb(242, 242, 245); background: linear-gradient(45deg,blue, indigo, violet);">Login/Sign up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    </div>
+
+    <!--Content Area-->
+     <div>
+        <div class="content" style="text-align: center; flex-direction: row;">
+            <h2 style="margin-top: 5px; font-size: 36px; font-weight: bold;">Products</h2>
+            </div>
+                <div class="salesrow1" >
+                    <div class="row" >
+                        <div class="col-sm-2" style="margin-left: 250px;">
+                            <div class="well" style="height: 200px; background-color: rgba(240, 248, 255, 0.363);">
+                                <h4 style="text-align: center;">RAFFLE TICKET</h4>
+                                <img src="">
+                                <p style="margin-top: 90px;text-align: right;"><a href="ProductDesc.html" id="books">View Details</a></p>
+                            </div>
+                        </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="well" style="height: 200px; background-color: rgba(240, 248, 255, 0.363);">
+                            <h4 style="text-align: center;">WRISTBAND</h4>
+                            <img src="" >
+                            <p style="margin-top: 90px;text-align: right;"><a href="ProductDesc.html" id="books">View More <i class="fa-solid fa-circle-arrow-right"></i></a></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="well" style="height: 200px; background-color: rgba(240, 248, 255, 0.363);">
+                                <h4 style="text-align: center;">VOUCHER</h4>
+                                <img src="">
+                                <p style="margin-top: 90px;text-align: right;"><a href="ProductDesc.html" id="books">View More <i class="fa-solid fa-circle-arrow-right"></i></a></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="well" style="height: 200px; background-color: rgba(240, 248, 255, 0.363);">
+                                    <h4 style="text-align: center;">COUPON STUB</h4>
+                                    <img src="">
+                                    <p style="margin-top: 90px;text-align: right;"><a href="ProductDesc.html" id="books">View More <i class="fa-solid fa-circle-arrow-right"></i></a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+                            <div class="salesrow2" >
+                                <div class="row" >
+                                    <div class="col-sm-2" style="margin-left: 250px;">
+                                        <div class="well" style="height: 200px; background-color: rgba(240, 248, 255, 0.363);">
+                                          <h4 style="text-align: center;">FLYERS</h4>
+                                          <img src="">
+                                          <p style="margin-top: 90px;text-align: right;"><a href="ProductDesc.html" id="books">View More <i class="fa-solid fa-circle-arrow-right"></i></a></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <div class="well" style="height: 200px; background-color: rgba(240, 248, 255, 0.363);">
+                                              <h4 style="text-align: center;">CALLING CARD</h4>
+                                              <img src="">
+                                              <p style="margin-top: 90px;text-align: right;"><a href="ProductDesc.html" id="books">View More <i class="fa-solid fa-circle-arrow-right"></i></a></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <div class="well" style="height: 200px; background-color: rgba(240, 248, 255, 0.363);">
+                                                  <h4 style="text-align: center;">LABEL DISCOUNTS </h4>
+                                                  <img src="">
+                                                  <p style="margin-top: 90px;text-align: right;"><a href="ProductDesc.html" id="books">View More <i class="fa-solid fa-circle-arrow-right"></i></a></p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-2">
+                                                    <div class="well" style="height: 200px; background-color: rgba(240, 248, 255, 0.363);">
+                                                      <h4 style="text-align: center;">PERSONALIZED BALLPEN </h4>
+                                                        <img src="">
+                                                      <p style="margin-top: 70px;text-align: right;"><a href="ProductDesc.html" id="books">View More <i class="fa-solid fa-circle-arrow-right"></i></a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+        </div>                 
+     </div>
+  
+
+
+    <!--Modal Login/Signup-->
+    <div>
+        
+    </div>
+
+    
+</body>
+</html>

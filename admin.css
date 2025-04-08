@@ -1,0 +1,127 @@
+/* Custom styles for responsiveness */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  /* Ensuring the body takes full height */
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-size: cover;
+  }
+  
+  
+  
+  /* Optional: custom styles for the search input and button */
+  .navbar-form .form-control {
+    width: 200px; /* Set a specific width for the search input */
+  }
+  
+  .navbar-form .btn {
+    margin-left: 5px; /* Add some space between the input and the button */
+  }
+  
+  /* Style for the time container */
+  .time-container {
+    display: inline-block; /* Keep it in line with other navbar elements */
+    padding: 8px 12px; /* Add padding for spacing */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 4px; /* Round the corners for a rectangle shape */
+    background-color: #9915f121; /* Light background color */
+    font-weight: bold; /* Make the time bold */
+    color: #fff;
+    margin-top: 5px;
+  }
+  
+  /* Search Results Container */
+  .results-container {
+    margin: 20px;
+  }
+  
+  /* Search Results */
+  .result-item {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  
+  /* Responsive adjustments for the sidebar */
+  .sidenav {
+    width: 25%; /* Increased width of the sidebar */
+    /* padding: 20px; */
+    background-color: #fbf9ff4d;
+    border-radius: 5px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    height: auto;
+    
+  }
+  
+  .sidenav h2, .sidenav p {
+    text-align: center;  /* Center-align text in the sidebar */
+    color: #333;
+  }
+  
+  .sidenav h2 {
+    font-size: 20px;  /* Increased font size for better visibility */
+    margin-top: 10px;
+  }
+  
+  .sidenav p {
+    font-size: 16px;  /* Increased font size for email */
+  }
+  
+  
+  
+  
+  .nav-pills .active > a {
+    background-color: #68d429;
+  }
+  
+  .nav-pills li a {
+    color: #000000 !important;  /* Link color */
+    font-weight: bold;
+    font-size: 25px; /* Increased font size for navigation links */
+    padding: 12px 20px; /* Increased padding for better clickability */
+    border-radius: 5px;
+  }
+  
+  .nav-pills li a:hover {
+    background-color: #ad62cfbb !important;
+  }
+  
+  .logout-container {
+    position: absolute;
+    bottom: 20px; /* Adjust the distance from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+}
+
+.logout-btn {
+    padding: 10px 20px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%; /* Adjust width as needed */
+}
+
+.logout-btn:hover {
+    background-color: #c9302c;
+}
+
+
+  
+   
+  
+  
+  

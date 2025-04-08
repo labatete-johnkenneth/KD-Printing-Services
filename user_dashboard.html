@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User dashboard</title>
+
+    <link rel="stylesheet" type="text/css" href="Public/bootstrap-3.4.1-dist/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Public/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
+    <script src="Public/plugins/jquery-3.7.1.min.js"></script>
+    <script src="Public/bootstrap-3.4.1-dist/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+
+    <style>
+ body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Covers the entire viewport */
+    background: linear-gradient(135deg, 
+        #ffa7b4, /* Pastel Red (Light Pink) */
+        #a7e5fa, /* Pastel Blue */
+        #fab8fa, /* Pastel Violet */
+        #f7f7a2, /* Pastel Yellow */
+        #8eff8e  /* Pastel Green */
+    );
+    background-size: cover;
+}
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse" style="background-color: rgb(193, 153, 197);">
+        <div class="container-fluid">
+            <div class="account">
+                <img src="Images\person.jpg" style="height:70px; width:auto; border-radius:50%;">
+                <h5 style="display:inline-block;  vertical-align: middle;">Name</h5>
+            </div>
+
+            <div class="col-md-6 navbar-links text-right navbar-right"  >
+                <a class="active" href="orderStatus.html"><i class="fa fa-fw fa-ticket"></i> Order Status</a>
+                <a href="notification.html"><i class="fa fa-fw fa-bell"></i> Notifications</a>
+                <a href="account.html"><i class="fa fa-fw fa-person"></i> Account</a>
+            </div>
+        </div>
+    </nav>
+
+    <!--Content area-->
+    <div></div>
+</body>
+
+</html>
